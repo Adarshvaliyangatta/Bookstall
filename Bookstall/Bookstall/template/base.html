@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Bookstall</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1> Bookstall</h1>
+
+   <nav>
+
+    <a href="/">🏠 Home</a>
+
+    <a href="/cart">🛒 Cart (<span id="cart-count">0</span>)</a>
+
+    <a href="/analytics">📊 Analytics</a>
+
+    <a href="/prediction">🤖 Prediction</a>
+
+</nav>
+
+</header>
+
+<div class="container">
+
+    {% block content %}
+
+    {% endblock %}
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

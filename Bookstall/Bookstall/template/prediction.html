@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Bill Prediction</h2>
+
+<label>
+
+Number of Items
+
+</label>
+
+<input
+type="number"
+id="items"
+value="1">
+
+<button onclick="predict()">
+
+Predict
+
+</button>
+
+<h2 id="prediction">
+
+</h2>
+
+{% endblock %}

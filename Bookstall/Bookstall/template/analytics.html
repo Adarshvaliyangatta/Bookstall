@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>📊 Analytics Dashboard</h1>
+
+<div class="dashboard">
+
+<div class="box">
+<h3>Total Orders</h3>
+<h1>{{ result.orders }}</h1>
+</div>
+
+<div class="box">
+<h3>Total Revenue</h3>
+<h1>₹{{ result.revenue }}</h1>
+</div>
+
+<div class="box">
+<h3>Average Bill</h3>
+<h1>₹{{ result.average }}</h1>
+</div>
+
+<div class="box">
+<h3>Most Ordered</h3>
+<h1>{{ result.popular }}</h1>
+</div>
+
+<div class="box">
+<h3>Highest Order</h3>
+<h1>₹{{ result.highest }}</h1>
+</div>
+
+</div>
+
+<h2>Sales Chart</h2>
+
+<img src="{{ url_for('static',
+filename='charts/sales.png') }}"
+width="700">
+
+<h2>Recent Orders</h2>
+
+<table>
+
+<tr>
+
+<th>Customer</th>
+<th>Item</th>
+<th>Qty</th>
+<th>Amount</th>
+
+</tr>
+
+{% for row in result.recent %}
+
+<tr>
+
+<td>{{ row.Customer }}</td>
+
+<td>{{ row.Item }}</td>
+
+<td>{{ row.Qty }}</td>
+
+<td>{{ row.Amount }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+<h2>Sales Chart</h2>
+
+<img src="{{ url_for('static',
+filename='charts/sales.png') }}">
+
+<h2>Recent Orders</h2>
+
+<table>
+
+<tr>
+
+<th>Customer</th>
+
+<th>Item</th>
+
+<th>Qty</th>
+
+<th>Amount</th>
+
+</tr>
+
+{% for row in result.recent %}
+
+<tr>
+
+<td>{{ row.Customer }}</td>
+
+<td>{{ row.Item }}</td>
+
+<td>{{ row.Qty }}</td>
+
+<td>{{ row.Amount }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+{% endblock %}

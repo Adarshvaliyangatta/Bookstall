@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Manohara Offset Press",
+        "rating": 4.5,
+        "menu": [
+            {
+                "name": "NoteBook",
+                "price": 25
+            },
+            {
+                "name": "Globe",
+                "price": 250
+            }
+
+
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Tohfa Couture",
+        "rating": 4.3,
+        "menu": [
+
+            {
+                "name": "pen",
+                "price": 10
+            },
+            {
+                "name": "pencil",
+                "price": 5
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Adarsh Assosiates",
+        "rating": 4.8,
+        "menu": [
+
+            {
+                "name": "map",
+                "price": 75
+            }
+        ]
+    }
+]

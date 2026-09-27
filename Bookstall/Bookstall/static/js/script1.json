@@ -1,0 +1,122 @@
+let cart = [];
+
+function addToCart(name, price) {
+
+    cart.push({
+        name: name,
+        price: price
+    });
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    updateCount();
+
+    alert(name + " added to cart");
+
+}
+
+function updateCount() {
+
+    let items =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    document.getElementById("cart-count").innerHTML =
+    items.length;
+
+}
+
+function loadCart() {
+
+    let items =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    let table =
+    document.getElementById("cartTable");
+
+    if(table==null)
+        return;
+
+    let total = 0;
+
+    items.forEach(function(item,index){
+
+        total += item.price;
+
+        table.innerHTML +=
+
+        "<tr>"
+
+        +"<td>"+item.name+"</td>"
+
+        +"<td>₹"+item.price+"</td>"
+
+        +"<td><button onclick='removeItem("+index+")'>X</button></td>"
+
+        +"</tr>";
+
+    });
+
+    document.getElementById("total").innerHTML=
+
+    "Total : ₹"+total;
+
+}
+
+function removeItem(index){
+
+    let items=
+
+    JSON.parse(localStorage.getItem("cart"));
+
+    items.splice(index,1);
+
+    localStorage.setItem(
+
+    "cart",
+
+    JSON.stringify(items)
+
+    );
+
+    location.reload();
+
+}
+
+function checkout(){
+
+    alert("Order Placed Successfully!");
+
+    localStorage.removeItem("cart");
+
+    location.reload();
+
+}
+
+function predict(){
+
+    let items=
+
+    document.getElementById("items").value;
+
+    let bill=items*180;
+
+    document.getElementById("prediction").innerHTML=
+
+    "Estimated Bill : ₹"+bill;
+
+}
+
+window.onload=function(){
+
+    cart=
+
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    updateCount();
+
+    loadCart();
+
+}

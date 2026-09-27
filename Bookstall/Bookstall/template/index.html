@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Restaurants</h2>
+
+<div class="cards">
+
+{% for restaurant in restaurants %}
+
+<div class="card">
+
+<h2>{{ restaurant.name }}</h2>
+
+<p>⭐ {{ restaurant.rating }}</p>
+
+<h3>Menu</h3>
+
+<ul>
+
+{% for item in restaurant.menu %}
+
+<li>
+
+{{ item.name }}
+
+₹{{ item.price }}
+
+<button
+
+onclick="addToCart(
+'{{ item.name }}',
+{{ item.price }}
+)"
+
+>
+
+Add
+
+</button>
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
